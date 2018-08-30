@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
             name='Grant',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('assignment', jsonfield.fields.JSONField(default=dict, help_text='Assignment from parameters (strings) to values (any JSON-compatible value)', blank=True)),
+                ('assignment', jsonfield.fields.JSONField(default=dict, help_text='Assignment from parameters (strings) to values (any JSON-compatible value)', blank=True, dump_kwargs={})),
             ],
             bases=(django_prbac.models.ValidatingModel, models.Model),
         ),
