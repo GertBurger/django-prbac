@@ -214,6 +214,12 @@ class Grant(ValidatingModel, models.Model):
         help_text='Assignment from parameters (strings) to values (any JSON-compatible value)',
         blank=True,
         default=dict,
+
+        # CHECKSEC MODIFICATION
+        # Change back to defaults so that outputted JSON is consistent
+        # with the output of the json module.
+        dump_kwargs={},
+
     )
 
     class Meta:
