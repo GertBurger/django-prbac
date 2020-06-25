@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import unicode_literals
 import os
 import re
 from io import open
@@ -30,8 +32,10 @@ setup(
     packages=find_packages(),
     zip_safe=False,
     install_requires=[
-        'django>=1.8,<2.1',
-        'jsonfield>=1.0.3',
+        # avoid django 1 <1.11.28 and django 2 <2.2.10
+        # https://github.com/advisories/GHSA-hmr4-m2h5-33qx
+        'django>=1.11.28,!=2.0.*,!=2.1.*,!=2.2.0,!=2.2.1,!=2.2.2,!=2.2.3,!=2.2.4,!=2.2.5,!=2.2.6,!=2.2.7,!=2.2.8,!=2.2.9,<3',
+        'jsonfield>=1.0.3,<3',
         'simplejson',
         'six',
     ],
